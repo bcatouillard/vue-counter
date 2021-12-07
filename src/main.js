@@ -4,6 +4,16 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 
+if("serviceWorker" in navigator){
+  let reloading = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if(!reloading) {
+      window.location.reload();
+      reloading = true;
+    }
+  });
+}
+
 Vue.config.productionTip = false;
 
 new Vue({

@@ -1,12 +1,22 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">My Home</router-link> |
+      <router-link :to="{ name: 'Users'}">Users</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link :to="{ name: 'Settings' }">Settings</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    message: "Hello"
+  })
+}
+</script>
 
 <style lang="scss">
 #app {
